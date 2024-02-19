@@ -1,0 +1,16 @@
+# Virtual environment
+env/
+
+# IDEs and editors
+.idea/
+.vscode/
+
+# Python bytecode files
+__pycache__/
+*.pyc
+
+# OS files
+.DS_Store
+
+# Others
+*.sqlite
