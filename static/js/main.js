@@ -339,57 +339,37 @@
 
    /*----------- Contact: Contact -----------*/
 
-ifExists('#contact .contact-section', function() {
-  $('#contact .contact-section .contact-form').on('submit', function(event) {
-    var form = $(this);
-    var submitBtn = form.find('#contact-submit');
-    var submitBtnText = submitBtn.text();
-    var feedbackEl = form.find('.contact-feedback');
-    event.preventDefault();
-    // Waiting for the response from the server
-    submitBtn.html('Wait...').addClass('wait').prop('disabled', true);
-    setTimeout(function() {
-      // Posts the Form's data to the server using Ajax
-      $.ajax({
-        url: form.attr('action'),
-        type: 'POST',
-        data: form.serialize(),
-      })
-      .done(function(response) {
-        // If the PHP file succeed sending the message
-        if (response == 'success') {
-          // Success feedback and reset
-          submitBtn.removeClass('wait').html('Success').addClass('success');
-          feedbackEl.addClass('success').html('Thank you for your message. It has been sent.').fadeIn(200);
-          setTimeout(function() {
-            submitBtn.html(submitBtnText).removeClass('success').prop('disabled', false);
-            feedbackEl.fadeOut(200).removeClass('success').html('');
-          }, 6000);
-          // Clears the Form
-          form[0].reset();
-        } else {
-          // Error feedback
-          console.log(response);
-          submitBtn.removeClass('wait').html('Error').addClass('error');
-          feedbackEl.addClass('error').html('Server error! Please check your browser console log for more details.').fadeIn(200);
-          setTimeout(function() {
-            submitBtn.html(submitBtnText).removeClass('error').prop('disabled', false);
-            feedbackEl.fadeOut(200).removeClass('error').html('');
-          }, 6000);
-        }
-      })
-      .fail(function() {
-        // Network error or server didn't respond correctly
-        submitBtn.removeClass('wait').html('Network Error').addClass('error');
-        feedbackEl.addClass('error').html('There was a network error. Please try again later.').fadeIn(200);
-        setTimeout(function() {
-          submitBtn.html(submitBtnText).removeClass('error').prop('disabled', false);
-          feedbackEl.fadeOut(200).removeClass('error').html('');
-        }, 6000);
-      });
-    }, 1000);
-  });
-});
+  //  var form = document.getElementById("contact-form"); // Ensure this matches your form's ID
+    
+  //  function handleSubmit(event) {
+  //    event.preventDefault();
+  //    var status = document.querySelector(".contact-feedback"); // Selector for the feedback element
+  //    var data = new FormData(event.target);
+  //    fetch(event.target.action, {
+  //      method: form.method,
+  //      body: data,
+  //      headers: {
+  //          'Accept': 'application/json'
+  //      }
+  //    }).then(response => {
+  //      if (response.ok) {
+  //        status.innerHTML = "Thanks for your submission!";
+  //        form.reset();
+  //        // Optional: Reset the button state here if needed
+  //      } else {
+  //        response.json().then(data => {
+  //          if (Object.hasOwn(data, 'errors')) {
+  //            status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
+  //          } else {
+  //            status.innerHTML = "Oops! There was a problem submitting your form";
+  //          }
+  //        });
+  //      }
+  //    }).catch(error => {
+  //      status.innerHTML = "Oops! There was a problem submitting your form";
+  //    });
+  //  }
+  //  form.addEventListener("submit", handleSubmit);
 
     /*----------- Preloader -----------*/
 
