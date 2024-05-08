@@ -7284,9 +7284,9 @@ button.bg-dark:focus {
   display: inline-block !important;
 }
 
-.d-block {
+/* .d-block {
   display: block !important;
-}
+} */
 
 .d-table {
   display: table !important;
@@ -7651,6 +7651,8 @@ button.bg-dark:focus {
 .align-items-center {
   -ms-flex-align: center !important;
   align-items: center !important;
+  flex-direction: column;
+  display: flex;
 }
 
 .align-items-baseline {
