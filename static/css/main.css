@@ -1106,9 +1106,7 @@ text-align: justify;
     object-fit: cover;
   }
 
-  .info-section .info-content .content-subtitle {
-    display: none;
-  }
+
 
   .info-section .info-content .content-title {
     font-size: 26px;
